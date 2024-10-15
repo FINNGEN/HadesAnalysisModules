@@ -28,7 +28,7 @@ usethis::use_news_md( open = FALSE )
 
 ## Use git ----
 usethis::use_git()
-usethis::use_github(private = F)
+usethis::use_github(private = F, organisation = 'FINNGEN')
 
 ## Use local renv
 renv::init()
