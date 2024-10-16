@@ -1,3 +1,4 @@
 # HadesAnalysisModules 1.0.0
 
-* Initial CRAN submission.
+* Initial version
+* module for CohortDiagnostics
