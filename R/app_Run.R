@@ -21,6 +21,9 @@ run_app <- function(...) {
     ...
   )
 
+  options(HadesAnalysisModules.analysisType = "")
+  options(HadesAnalysisModules.pathToResultsDatabase = "")
+
   return(app)
 }
 

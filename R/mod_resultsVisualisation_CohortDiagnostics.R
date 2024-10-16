@@ -12,9 +12,9 @@ mod_cohortDiagnosticsVisualization_ui <- function(pathToResultsDatabase) {
 
   newui <- source(system.file("shiny", "DiagnosticsExplorer", "ui.R", package = "CohortDiagnostics"), local = TRUE)
 
-  return(newui$value)
-
+  return(newui)
 }
+
 
 
 #

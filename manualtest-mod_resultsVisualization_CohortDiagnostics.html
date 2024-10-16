@@ -1,0 +1,1970 @@
+<body class="skin-blue" style="min-height: 611px;">
+  <div class="wrapper">
+    <header class="main-header">
+      <span class="logo">Cohort Diagnostics</span>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <span style="display:none;">
+          <i class="fas fa-bars" role="presentation" aria-label="bars icon"></i>
+        </span>
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown" style="margin-top: 8px !important; margin-right : 5px !important"></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside id="sidebarCollapsed" class="main-sidebar" data-collapsed="false">
+      <section id="sidebarItemExpanded" class="sidebar">
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#shiny-tab-cohortDefinition" data-toggle="tab" data-value="cohortDefinition">
+              <i class="fas fa-code" role="presentation" aria-label="code icon"></i>
+              <span>Cohort Definition</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-conceptsInDataSource" data-toggle="tab" data-value="conceptsInDataSource">
+              <i class="fas fa-table" role="presentation" aria-label="table icon"></i>
+              <span>Concepts in Data Source</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-orphanConcepts" data-toggle="tab" data-value="orphanConcepts">
+              <i class="fas fa-notes-medical" role="presentation" aria-label="notes-medical icon"></i>
+              <span>Orphan Concepts</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-cohortCounts" data-toggle="tab" data-value="cohortCounts">
+              <i class="fas fa-bars" role="presentation" aria-label="bars icon"></i>
+              <span>Cohort Counts</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-incidenceRate" data-toggle="tab" data-value="incidenceRate">
+              <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+              <span>Incidence Rate</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-timeDistribution" data-toggle="tab" data-value="timeDistribution">
+              <i class="far fa-clock" role="presentation" aria-label="clock icon"></i>
+              <span>Time Distributions</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-indexEventBreakdown" data-toggle="tab" data-value="indexEventBreakdown">
+              <i class="far fa-hospital" role="presentation" aria-label="hospital icon"></i>
+              <span>Index Event Breakdown</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-visitContext" data-toggle="tab" data-value="visitContext">
+              <i class="far fa-building" role="presentation" aria-label="building icon"></i>
+              <span>Visit Context</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-cohortOverlap" data-toggle="tab" data-value="cohortOverlap">
+              <i class="far fa-circle" role="presentation" aria-label="circle icon"></i>
+              <span>Cohort Overlap</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-cohortCharacterization" data-toggle="tab" data-value="cohortCharacterization">
+              <i class="far fa-user" role="presentation" aria-label="user icon"></i>
+              <span>Cohort Characterization</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-compareCohortCharacterization" data-toggle="tab" data-value="compareCohortCharacterization">
+              <i class="fas fa-users" role="presentation" aria-label="users icon"></i>
+              <span>Compare Characterization</span>
+            </a>
+          </li>
+          <li>
+            <a href="#shiny-tab-databaseInformation" data-toggle="tab" data-value="databaseInformation">
+              <i class="fas fa-gear" role="presentation" aria-label="gear icon" verify_fa="FALSE"></i>
+              <span>Meta data</span>
+            </a>
+          </li>
+          <div class="shiny-panel-conditional" data-display-if="input.tabs!=&#39;incidenceRate&#39; &amp;&#10;      input.tabs != &#39;timeDistribution&#39; &amp;&#10;      input.tabs != &#39;cohortCharacterization&#39; &amp;&#10;      input.tabs != &#39;cohortCounts&#39; &amp;&#10;      input.tabs != &#39;indexEventBreakdown&#39; &amp;&#10;      input.tabs != &#39;cohortDefinition&#39; &amp;&#10;      input.tabs != &#39;conceptsInDataSource&#39; &amp;&#10;      input.tabs != &#39;orphanConcepts&#39; &amp;&#10;      input.tabs != &#39;inclusionRuleStats&#39; &amp;&#10;      input.tabs != &#39;visitContext&#39; &amp;&#10;      input.tabs != &#39;compareCohortCharacterization&#39; &amp;&#10;      input.tabs != &#39;cohortCharacterization&#39; &amp;&#10;      input.tabs != &#39;cohortOverlap&#39;" data-ns-prefix="DiagnosticsExplorer-">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="DiagnosticsExplorer-database-label" for="DiagnosticsExplorer-database">Database</label>
+              <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-database" class="selectpicker form-control" autocomplete="off"></select>
+            </div>
+          </div>
+          <div class="shiny-panel-conditional" data-display-if="input.tabs==&#39;incidenceRate&#39; |&#10;      input.tabs == &#39;timeDistribution&#39; |&#10;      input.tabs == &#39;cohortCounts&#39; |&#10;      input.tabs == &#39;indexEventBreakdown&#39; |&#10;      input.tabs == &#39;conceptsInDataSource&#39; |&#10;      input.tabs == &#39;orphanConcepts&#39; |&#10;      input.tabs == &#39;inclusionRuleStats&#39; |&#10;      input.tabs == &#39;visitContext&#39; |&#10;      input.tabs == &#39;cohortOverlap&#39;" data-ns-prefix="DiagnosticsExplorer-">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="DiagnosticsExplorer-databases-label" for="DiagnosticsExplorer-databases">Database(s)</label>
+              <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-databases" class="selectpicker form-control" autocomplete="off" multiple="multiple"></select>
+            </div>
+          </div>
+          <div class="shiny-panel-conditional" data-display-if="input.tabs != &#39;databaseInformation&#39; &amp;&#10;      input.tabs != &#39;cohortDefinition&#39; &amp;&#10;      input.tabs != &#39;cohortCounts&#39; &amp;&#10;      input.tabs != &#39;cohortOverlap&#39;&amp;&#10;      input.tabs != &#39;incidenceRate&#39; &amp;&#10;      input.tabs != &#39;compareCohortCharacterization&#39; &amp;&#10;      input.tabs != &#39;cohortCharacterization&#39; &amp;&#10;      input.tabs != &#39;timeDistribution&#39;" data-ns-prefix="DiagnosticsExplorer-">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="DiagnosticsExplorer-targetCohort-label" for="DiagnosticsExplorer-targetCohort">Cohort</label>
+              <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-targetCohort" class="selectpicker form-control" autocomplete="off">
+                <option value="" style="color: black;"></option>
+              </select>
+            </div>
+          </div>
+          <div class="shiny-panel-conditional" data-display-if="input.tabs == &#39;cohortCounts&#39; |&#10;      input.tabs == &#39;cohortOverlap&#39; |&#10;      input.tabs == &#39;incidenceRate&#39; |&#10;      input.tabs == &#39;timeDistribution&#39;" data-ns-prefix="DiagnosticsExplorer-">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="DiagnosticsExplorer-cohorts-label" for="DiagnosticsExplorer-cohorts">Cohorts</label>
+              <select data-actions-box="true" data-dropup-auto="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-cohorts" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                <option value="" style="color: black;" selected="selected"></option>
+              </select>
+            </div>
+          </div>
+          <div class="shiny-panel-conditional" data-display-if="input.tabs == &#39;temporalCharacterization&#39; |&#10;      input.tabs == &#39;conceptsInDataSource&#39; |&#10;      input.tabs == &#39;orphanConcepts&#39;" data-ns-prefix="DiagnosticsExplorer-">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="DiagnosticsExplorer-conceptSetsSelected-label" for="DiagnosticsExplorer-conceptSetsSelected">Concept sets</label>
+              <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-conceptSetsSelected" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                <option value="" style="color: black;" selected="selected"></option>
+              </select>
+            </div>
+          </div>
+          <div id="DiagnosticsExplorer-tabs" class="sidebarMenuSelectedTabItem" data-value="null"></div>
+        </ul>
+      </section>
+    </aside>
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-about"></div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-cohortDefinition">
+            <div>
+              <div class="box box-primary">
+                <div class="box-body">
+                  <table width="100%">
+                    <tr>
+                      <td align="left">
+                        <h4>Cohort Definition</h4>
+                      </td>
+                      <td align="right">
+                        <a id="DiagnosticsExplorer-cohortDefinitions-exportAllCohortDetails" class="btn btn-default shiny-download-link disabled" href="" target="_blank" download aria-disabled="true" tabindex="-1" style="margin-top: 5px; margin-bottom: 5px;">
+                          <i class="fas fa-file-export" role="presentation" aria-label="file-export icon"></i>
+                          Export Cohorts Zip
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="col-sm-12">
+                    <div data-spinner-id="spinner-fbc3b8101185ad4f1f3f176f4c1db2a1" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-fbc3b8101185ad4f1f3f176f4c1db2a1" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionTable" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionTable" style="width:auto;height:auto;"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="shiny-panel-conditional" data-display-if="output.cohortDefinitionRowIsSelected == true" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                      <div class="tabbable">
+                        <ul class="nav nav-tabs" data-tabsetid="3097">
+                          <li class="active">
+                            <a href="#tab-3097-1" data-toggle="tab" data-bs-toggle="tab" data-value="Details">Details</a>
+                          </li>
+                          <li>
+                            <a href="#tab-3097-2" data-toggle="tab" data-bs-toggle="tab" data-value="Cohort Count">Cohort Count</a>
+                          </li>
+                          <li>
+                            <a href="#tab-3097-3" data-toggle="tab" data-bs-toggle="tab" data-value="Cohort definition">Cohort definition</a>
+                          </li>
+                          <li>
+                            <a href="#tab-3097-4" data-toggle="tab" data-bs-toggle="tab" data-value="Concept Sets">Concept Sets</a>
+                          </li>
+                          <li>
+                            <a href="#tab-3097-5" data-toggle="tab" data-bs-toggle="tab" data-value="JSON">JSON</a>
+                          </li>
+                          <li>
+                            <a href="#tab-3097-6" data-toggle="tab" data-bs-toggle="tab" data-value="SQL">SQL</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" data-tabsetid="3097">
+                          <div class="tab-pane active" data-value="Details" id="tab-3097-1">
+                            <div id="DiagnosticsExplorer-cohortDefinitions-cohortDetailsText" class="shiny-html-output"></div>
+                          </div>
+                          <div class="tab-pane" data-value="Cohort Count" id="tab-3097-2">
+                            <br/>
+                            <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-cohortCountsTableInCohortDefinition" id="DiagnosticsExplorer-cohortDefinitions-cohortCountsTableInCohortDefinition" style="width:auto;height:auto;"></div>
+                          </div>
+                          <div class="tab-pane" data-value="Cohort definition" id="tab-3097-3">
+                            <button type="button" class="btn btn-default action-button" onclick="&#10;  text = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionText&#39;).textContent;&#10;  html = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionText&#39;).innerHTML;&#10;  function listener(e) {&#10;    e.clipboardData.setData(&#39;text/html&#39;, html);&#10;    e.clipboardData.setData(&#39;text/plain&#39;, text);&#10;    e.preventDefault();&#10;  }&#10;  document.addEventListener(&#39;copy&#39;, listener);&#10;  document.execCommand(&#39;copy&#39;);&#10;  document.removeEventListener(&#39;copy&#39;, listener);&#10;  return false;" style="margin-top: 5px; margin-bottom: 5px;">
+                              <i class="far fa-clipboard" role="presentation" aria-label="clipboard icon"></i>
+                              Copy to clipboard
+                            </button>
+                            <div id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionText" class="shiny-html-output"></div>
+                          </div>
+                          <div class="tab-pane" data-value="Concept Sets" id="tab-3097-4">
+                            <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-conceptsetExpressionsInCohort" id="DiagnosticsExplorer-cohortDefinitions-conceptsetExpressionsInCohort" style="width:auto;height:auto;"></div>
+                            <div class="shiny-panel-conditional" data-display-if="output.cohortDefinitionConceptSetExpressionRowIsSelected == true" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                              <table>
+                                <tr>
+                                  <td>
+                                    <div id="DiagnosticsExplorer-cohortDefinitions-conceptSetsType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-cohortDefinitions-conceptSetsType-label">
+                                      <label class="control-label" id="DiagnosticsExplorer-cohortDefinitions-conceptSetsType-label" for="DiagnosticsExplorer-cohortDefinitions-conceptSetsType"></label>
+                                      <div class="shiny-options-group">
+                                        <label class="radio-inline">
+                                          <input type="radio" name="DiagnosticsExplorer-cohortDefinitions-conceptSetsType" value="Concept Set Expression" checked="checked"/>
+                                          <span>Concept Set Expression</span>
+                                        </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="DiagnosticsExplorer-cohortDefinitions-conceptSetsType" value="Resolved"/>
+                                          <span>Resolved</span>
+                                        </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="DiagnosticsExplorer-cohortDefinitions-conceptSetsType" value="Mapped"/>
+                                          <span>Mapped</span>
+                                        </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="DiagnosticsExplorer-cohortDefinitions-conceptSetsType" value="Json"/>
+                                          <span>Json</span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="shiny-panel-conditional" data-display-if="input.conceptSetsType == &#39;Resolved&#39; | input.conceptSetsType == &#39;Mapped&#39;" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                                      <div class="form-group shiny-input-container" style="width:400px;">
+                                        <label class="control-label" id="DiagnosticsExplorer-cohortDefinitions-vocabularySelection-label" for="DiagnosticsExplorer-cohortDefinitions-vocabularySelection">Database:</label>
+                                        <div>
+                                          <select id="DiagnosticsExplorer-cohortDefinitions-vocabularySelection" class="shiny-input-select"></select>
+                                          <script type="application/json" data-for="DiagnosticsExplorer-cohortDefinitions-vocabularySelection" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div id="DiagnosticsExplorer-cohortDefinitions-subjectCountInCohortConceptSet" class="shiny-html-output"></div>
+                                  </td>
+                                  <td>
+                                    <div id="DiagnosticsExplorer-cohortDefinitions-recordCountInCohortConceptSet" class="shiny-html-output"></div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                            <div class="shiny-panel-conditional" data-display-if="output.cohortDefinitionConceptSetExpressionRowIsSelected == true &amp;&#10;                  input.conceptSetsType != &#39;Resolved&#39; &amp;&#10;                  input.conceptSetsType != &#39;Mapped&#39; &amp;&#10;                  input.conceptSetsType != &#39;Json&#39;" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                              <p>Filter logical values with "T" and "F"</p>
+                              <div data-spinner-id="spinner-74d56fba6b7bb01ab8ac8f5c41d7e9ac" class="shiny-spinner-output-container shiny-spinner-hideui">
+                                <div class="load-container shiny-spinner-hidden load1">
+                                  <div id="spinner-74d56fba6b7bb01ab8ac8f5c41d7e9ac" class="loader">Loading...</div>
+                                </div>
+                                <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                                <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionConceptSetDetailsTable" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionConceptSetDetailsTable" style="width:auto;height:auto;"></div>
+                              </div>
+                            </div>
+                            <div class="shiny-panel-conditional" data-display-if="input.conceptSetsType == &#39;Resolved&#39;" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                              <div data-spinner-id="spinner-8ceb3215540fc41f1dd3e698014ef37b" class="shiny-spinner-output-container shiny-spinner-hideui">
+                                <div class="load-container shiny-spinner-hidden load1">
+                                  <div id="spinner-8ceb3215540fc41f1dd3e698014ef37b" class="loader">Loading...</div>
+                                </div>
+                                <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                                <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionResolvedConceptsTable" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionResolvedConceptsTable" style="width:auto;height:auto;"></div>
+                              </div>
+                            </div>
+                            <div class="shiny-panel-conditional" data-display-if="input.conceptSetsType == &#39;Mapped&#39;" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                              <div data-spinner-id="spinner-4a9cfbbd263aa45837b8797604df8830" class="shiny-spinner-output-container shiny-spinner-hideui">
+                                <div class="load-container shiny-spinner-hidden load1">
+                                  <div id="spinner-4a9cfbbd263aa45837b8797604df8830" class="loader">Loading...</div>
+                                </div>
+                                <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                                <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionMappedConceptsTable" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionMappedConceptsTable" style="width:auto;height:auto;"></div>
+                              </div>
+                            </div>
+                            <div class="shiny-panel-conditional" data-display-if="input.conceptSetsType == &#39;Json&#39;" data-ns-prefix="DiagnosticsExplorer-cohortDefinitions-">
+                              <button type="button" class="btn btn-default action-button" onclick="&#10;  text = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortConceptsetExpressionJson&#39;).textContent;&#10;  html = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortConceptsetExpressionJson&#39;).innerHTML;&#10;  function listener(e) {&#10;    e.clipboardData.setData(&#39;text/html&#39;, html);&#10;    e.clipboardData.setData(&#39;text/plain&#39;, text);&#10;    e.preventDefault();&#10;  }&#10;  document.addEventListener(&#39;copy&#39;, listener);&#10;  document.execCommand(&#39;copy&#39;);&#10;  document.removeEventListener(&#39;copy&#39;, listener);&#10;  return false;" style="margin-top: 5px; margin-bottom: 5px;">
+                                <i class="far fa-clipboard" role="presentation" aria-label="clipboard icon"></i>
+                                Copy to clipboard
+                              </button>
+                              <pre class="shiny-text-output noplaceholder" id="DiagnosticsExplorer-cohortDefinitions-cohortConceptsetExpressionJson"></pre>
+                            </div>
+                          </div>
+                          <div class="tab-pane" data-value="JSON" id="tab-3097-5">
+                            <button type="button" class="btn btn-default action-button" onclick="&#10;  text = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionJson&#39;).textContent;&#10;  html = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionJson&#39;).innerHTML;&#10;  function listener(e) {&#10;    e.clipboardData.setData(&#39;text/html&#39;, html);&#10;    e.clipboardData.setData(&#39;text/plain&#39;, text);&#10;    e.preventDefault();&#10;  }&#10;  document.addEventListener(&#39;copy&#39;, listener);&#10;  document.execCommand(&#39;copy&#39;);&#10;  document.removeEventListener(&#39;copy&#39;, listener);&#10;  return false;" style="margin-top: 5px; margin-bottom: 5px;">
+                              <i class="far fa-clipboard" role="presentation" aria-label="clipboard icon"></i>
+                              Copy to clipboard
+                            </button>
+                            <pre class="shiny-text-output noplaceholder" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionJson"></pre>
+                          </div>
+                          <div class="tab-pane" data-value="SQL" id="tab-3097-6">
+                            <button type="button" class="btn btn-default action-button" onclick="&#10;  text = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionSql&#39;).textContent;&#10;  html = document.getElementById(&#39;DiagnosticsExplorer-cohortDefinitions-cohortDefinitionSql&#39;).innerHTML;&#10;  function listener(e) {&#10;    e.clipboardData.setData(&#39;text/html&#39;, html);&#10;    e.clipboardData.setData(&#39;text/plain&#39;, text);&#10;    e.preventDefault();&#10;  }&#10;  document.addEventListener(&#39;copy&#39;, listener);&#10;  document.execCommand(&#39;copy&#39;);&#10;  document.removeEventListener(&#39;copy&#39;, listener);&#10;  return false;" style="margin-top: 5px; margin-bottom: 5px;">
+                              <i class="far fa-clipboard" role="presentation" aria-label="clipboard icon"></i>
+                              Copy to clipboard
+                            </button>
+                            <pre class="shiny-text-output noplaceholder" id="DiagnosticsExplorer-cohortDefinitions-cohortDefinitionSql"></pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-cohortCounts">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Cohort Counts</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing the number of cohort entries and unique subjects per cohort per data source. Because one person can have more than one cohort entry, the number of entries can be higher than the number of persons.</p>
+
+<h4>Options</h4>
+<p>You may select multiple data sources in the side bar to see counts from different data sources side-by-side.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are there cohorts that are empty in some data sources?</li>
+<li>Are the relative counts (relative to the other cohorts in the same data source) comparable across data sources? Note that the color bars show the relative counts.</li>
+<li>Are the cohorts of expected and sufficient size? For example, if we want to study the effect of an exposure, a rule-of-thumb is that we require at least 2,500 in the exposure cohort.</li>
+</ul></div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-cohortCounts-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box">
+                <div class="box-body">
+                  <table>
+                    <tr>
+                      <td>
+                        <div id="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter-label">
+                          <label class="control-label" id="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter-label" for="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter">Display</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter" value="Both" checked="checked"/>
+                              <span>Both</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter" value="Persons"/>
+                              <span>Persons</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountsTableColumnFilter" value="Records"/>
+                              <span>Records</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div data-spinner-id="spinner-4defde522b31ce9f38d97b83f8399e16" class="shiny-spinner-output-container shiny-spinner-hideui">
+                    <div class="load-container shiny-spinner-hidden load1">
+                      <div id="spinner-4defde522b31ce9f38d97b83f8399e16" class="loader">Loading...</div>
+                    </div>
+                    <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                    <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortCounts-cohortCountsTable" id="DiagnosticsExplorer-cohortCounts-cohortCountsTable" style="width:auto;height:auto;"></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                      <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-046ad64f90c4af6dac81" width="960"></span>
+                      <script type="application/json" data-for="htmlwidget-046ad64f90c4af6dac81">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-cohortCounts-cohortCountsTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                    </div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="output.cohortCountRowIsSelected == true" data-ns-prefix="DiagnosticsExplorer-cohortCounts-">
+                    <h4>Inclusion Rule Statistics</h4>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div id="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters-label">
+                          <label class="control-label" id="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters-label" for="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters">Inclusion Rule Events</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters" value="All" checked="checked"/>
+                              <span>All</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters" value="Meet"/>
+                              <span>Meet</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters" value="Gain"/>
+                              <span>Gain</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-cohortCountInclusionRuleTableFilters" value="Remain"/>
+                              <span>Remain</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div id="DiagnosticsExplorer-cohortCounts-showPersonOrEvents" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-cohortCounts-showPersonOrEvents-label">
+                          <label class="control-label" id="DiagnosticsExplorer-cohortCounts-showPersonOrEvents-label" for="DiagnosticsExplorer-cohortCounts-showPersonOrEvents">Report</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-showPersonOrEvents" value="Persons" checked="checked"/>
+                              <span>Persons</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortCounts-showPersonOrEvents" value="Events"/>
+                              <span>Events</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group shiny-input-container">
+                          <div class="checkbox">
+                            <label>
+                              <input id="DiagnosticsExplorer-cohortCounts-showAsPercent" type="checkbox" class="shiny-input-checkbox" checked="checked"/>
+                              <span>Show as percent</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-spinner-id="spinner-1601b872511b9d3857ea2082dbf2144b" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-1601b872511b9d3857ea2082dbf2144b" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortCounts-inclusionRuleStats" id="DiagnosticsExplorer-cohortCounts-inclusionRuleStats" style="width:auto;height:auto;"></div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                        <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-b76eae5826fead87c2a2" width="960"></span>
+                        <script type="application/json" data-for="htmlwidget-b76eae5826fead87c2a2">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-cohortCounts-inclusionRuleStats&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-incidenceRate">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Incidence Rates</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A graph showing the incidence rate, optionally stratified by age (in 10-year bins), gender, and calendar year.</p>
+
+<p>The incidence rate is computed as 1000 * the number of people <em>first</em> entering the cohort / the number of years people were eligible to enter the cohort for the first time. The eligible person time is defined as the time when
+<ul>
+  <li>A person was observed in the data source (based on the observation_period table).</li>
+  <li>Had the required amount of prior observation time as specified in the cohort entry event criteria. For example, if the cohort definition requires 365 days of observation prior to cohort entry, patients are not eligible to enter the cohort in the first 365 days of their observation period, and this time is not counted in the eligible time.</li>
+  <li>If the person enters the cohort, then only the time up to cohort entry. Because we only consider the first cohort entry, persons are no longer eligible to enter to cohort after their first entry.</li>
+</ul>
+
+<p> <em>Note:</em> If your cohort definition has an inclusion rule that restricts persons based on prior observation time, then this might lead to underestimation of incidence rate as the same prior observation time restriction would not be applied to the denominator. We recommend that you revise the cohort definition to make prior observation time rule part of entry event criteria. </p>
+
+<h4>Options</h4>
+<p>You can select multiple data sources in the side bar to see graphs from different data sources in the same plot.</p>
+<p>Select the cohort to explore in the side bar.</p>
+<p>At the top left of the plot, you can choose whether to stratify the data by age, gender, or calendar year.</p>
+<p>At the top right of the plot, you can choose whether to use the same y-axis for all data sources.</p>
+<p>If you move the mouse over the plot, you can see the precise value.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are the observed incidence rates in line with expectations? For example, if we have an estimate of the population incidence based on an external source, is the incidence rate comparable to that estimate?</li>
+<li>Are the age and gender distributions in line with expectations? For example, are contraceptives only prescribed in women?</li>
+<li>Is the incidence rate stable over time? If there are sudden peaks or drops, this may indicate coding issues.</li>
+</ul></div>
+              </div>
+            </div>
+            <div>
+              <div class="box box-primary">
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div id="DiagnosticsExplorer-incidenceRates-irStratification" class="form-group shiny-input-checkboxgroup shiny-input-container shiny-input-container-inline" role="group" aria-labelledby="DiagnosticsExplorer-incidenceRates-irStratification-label">
+                        <label class="control-label" id="DiagnosticsExplorer-incidenceRates-irStratification-label" for="DiagnosticsExplorer-incidenceRates-irStratification">Stratify by</label>
+                        <div class="shiny-options-group">
+                          <label class="checkbox-inline">
+                            <input type="checkbox" name="DiagnosticsExplorer-incidenceRates-irStratification" value="Age" checked="checked"/>
+                            <span>Age</span>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" name="DiagnosticsExplorer-incidenceRates-irStratification" value="Sex" checked="checked"/>
+                            <span>Sex</span>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" name="DiagnosticsExplorer-incidenceRates-irStratification" value="Calendar Year" checked="checked"/>
+                            <span>Calendar Year</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <br/>
+                      <div class="form-group shiny-input-container">
+                        <div class="checkbox">
+                          <label>
+                            <input id="DiagnosticsExplorer-incidenceRates-irYscaleFixed" type="checkbox" class="shiny-input-checkbox"/>
+                            <span>Use same y-scale across databases</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="shiny-panel-conditional" data-display-if="input.irYscaleFixed" data-ns-prefix="DiagnosticsExplorer-incidenceRates-">
+                        <div class="form-group shiny-input-container" style="width:400px;">
+                          <label class="control-label" id="DiagnosticsExplorer-incidenceRates-YscaleMinAndMax-label" for="DiagnosticsExplorer-incidenceRates-YscaleMinAndMax">Limit y-scale range to:</label>
+                          <input class="js-range-slider" id="DiagnosticsExplorer-incidenceRates-YscaleMinAndMax" data-skin="shiny" data-type="double" data-min="0" data-max="0" data-from="0" data-to="0" data-step="1" data-grid="true" data-grid-num="NaN" data-grid-snap="false" data-prettify-separator="" data-prettify-enabled="false" data-keyboard="true" data-drag-interval="true" data-data-type="number"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="shiny-panel-conditional" data-display-if="input.irStratification.indexOf(&#39;Age&#39;) &gt; -1" data-ns-prefix="DiagnosticsExplorer-incidenceRates-">
+                      <div class="col-sm-6">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-incidenceRates-incidenceRateAgeFilter-label" for="DiagnosticsExplorer-incidenceRates-incidenceRateAgeFilter">Filter By Age</label>
+                          <select data-actions-box="true" data-dropup-auto="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-incidenceRates-incidenceRateAgeFilter" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                            <option value="All" style="color: black;" selected="selected">All</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="shiny-panel-conditional" data-display-if="input.irStratification.indexOf(&#39;Sex&#39;) &gt; -1" data-ns-prefix="DiagnosticsExplorer-incidenceRates-">
+                      <div class="col-sm-6">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-incidenceRates-incidenceRateGenderFilter-label" for="DiagnosticsExplorer-incidenceRates-incidenceRateGenderFilter">Filter By Sex</label>
+                          <select data-actions-box="true" data-dropup-auto="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-incidenceRates-incidenceRateGenderFilter" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                            <option value="All" style="color: black;" selected="selected">All</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-incidenceRates-minPersonYear-label" for="DiagnosticsExplorer-incidenceRates-minPersonYear">Minimum person years</label>
+                        <input id="DiagnosticsExplorer-incidenceRates-minPersonYear" type="number" class="shiny-input-number form-control" value="1000" min="0"/>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-incidenceRates-minSubjectCount-label" for="DiagnosticsExplorer-incidenceRates-minSubjectCount">Minimum subject count</label>
+                        <input id="DiagnosticsExplorer-incidenceRates-minSubjectCount" type="number" class="shiny-input-number form-control"/>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-incidenceRates-plotRowHeight-label" for="DiagnosticsExplorer-incidenceRates-plotRowHeight">Plot row height (pixels)</label>
+                        <input id="DiagnosticsExplorer-incidenceRates-plotRowHeight" type="number" class="shiny-input-number form-control" value="200" min="100" max="500"/>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="shiny-panel-conditional" data-display-if="input.irStratification.indexOf(&#39;Calendar Year&#39;) &gt; -1" data-ns-prefix="DiagnosticsExplorer-incidenceRates-">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-incidenceRates-incidenceRateCalenderFilter-label" for="DiagnosticsExplorer-incidenceRates-incidenceRateCalenderFilter">Filter By Calender Year</label>
+                          <input class="js-range-slider" id="DiagnosticsExplorer-incidenceRates-incidenceRateCalenderFilter" data-skin="shiny" data-type="double" data-min="0" data-max="0" data-from="0" data-to="0" data-step="1" data-grid="true" data-grid-num="NaN" data-grid-snap="false" data-prettify-separator="" data-prettify-enabled="false" data-prefix="Year " data-keyboard="true" data-drag-interval="true" data-data-type="number"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button id="DiagnosticsExplorer-incidenceRates-generatePlot" type="button" class="btn btn-default action-button">Generate Report</button>
+                </div>
+              </div>
+            </div>
+            <div class="shiny-panel-conditional" data-display-if="input.generatePlot &gt; 0" data-ns-prefix="DiagnosticsExplorer-incidenceRates-">
+              <div id="DiagnosticsExplorer-incidenceRates-selectedCohorts" class="shiny-html-output"></div>
+              <div>
+                <div class="box">
+                  <div class="box-body">
+                    <div class="tabbable">
+                      <ul class="nav nav-pills shiny-tab-input" id="DiagnosticsExplorer-incidenceRates-irPlotTabsetPanel" data-tabsetid="6542">
+                        <li class="active">
+                          <a href="#tab-6542-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+                        </li>
+                        <li>
+                          <a href="#tab-6542-2" data-toggle="tab" data-bs-toggle="tab" data-value="Table">Table</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" data-tabsetid="6542">
+                        <div class="tab-pane active" data-value="Plot" id="tab-6542-1">
+                          <div id="DiagnosticsExplorer-incidenceRates-plotArea" height="100%"></div>
+                        </div>
+                        <div class="tab-pane" data-value="Table" id="tab-6542-2">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <div class="form-group shiny-input-container">
+                                <div class="checkbox">
+                                  <label>
+                                    <input id="DiagnosticsExplorer-incidenceRates-groupColumns" type="checkbox" class="shiny-input-checkbox"/>
+                                    <span>Group columns by strata/data source</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div style="text-align:right;">
+                                <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                                  <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-772713e89d6bd6e9fc30" width="960"></span>
+                                  <script type="application/json" data-for="htmlwidget-772713e89d6bd6e9fc30">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-incidenceRates-irTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div data-spinner-id="spinner-3488116e5b36b83e938fc8714de871de" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-3488116e5b36b83e938fc8714de871de" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-incidenceRates-irTable" id="DiagnosticsExplorer-incidenceRates-irTable" style="width:auto;height:auto;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-timeDistribution">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Time Distributions</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>Boxplot and a table showing the distribution of time (in days) before and after the cohort index date (cohort start date), and the time between cohort start and end date. The information is shown for <em>all</em> cohort entries, so not limiting to the first per person.</p>
+
+<p>The boxplot shows:
+<ul>
+<li>Whiskers: The minimum and maximum observed number of days.</li>
+<li>Box: The 25th to 75th percentile.</li>
+<li>Line: The median</li>
+</ul>
+</p>
+
+<p>The table show the same information and more:
+<ul>
+<li>Average: the mean of the distribution</li>
+<li>SD: Standard Deviation</li>
+<li>Min: The minimum</li>
+<li>P10: The 10th percentile</li>
+<li>P25: The 25th percentile</li>
+<li>Median: The median (50th percentile)</li>
+<li>P75: The 75th percentile</li>
+<li>P90: The 90th percentile</li>
+<li>Max: The maximum</li>
+</ul>
+</p>
+
+<h4>Options</h4>
+<p>You can select multiple data sources in the side bar to see time distributions from different data sources in the same plot and table.</p>
+<p>Select the cohort to explore in the side bar.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>For exposure cohorts: is there sufficient time after index (either within the cohort for on-treatment analyses, or until the end of observation for intent-to-treat type analyses) to observe the outcome of interest?</li>
+<li>Are there many cohorts with length = 0 when this is not expected?</li>
+<li>Are the distributions comparable across data sources?</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-timeDistributions-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">Time Distributions</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <div id="DiagnosticsExplorer-timeDistributions-timeDistributionType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-timeDistributions-timeDistributionType-label">
+                        <label class="control-label" id="DiagnosticsExplorer-timeDistributions-timeDistributionType-label" for="DiagnosticsExplorer-timeDistributions-timeDistributionType"></label>
+                        <div class="shiny-options-group">
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-timeDistributions-timeDistributionType" value="Table"/>
+                            <span>Table</span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-timeDistributions-timeDistributionType" value="Plot" checked="checked"/>
+                            <span>Plot</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-timeDistributions-selecatableTimeMeasures-label" for="DiagnosticsExplorer-timeDistributions-selecatableTimeMeasures">View Time Measures</label>
+                        <select data-actions-box="true" data-dropup-auto="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-timeDistributions-selecatableTimeMeasures" class="selectpicker form-control" autocomplete="off" multiple="multiple"><option value="observation time (days) prior to index" selected>observation time (days) prior to index</option>
+<option value="observation time (days) after index" selected>observation time (days) after index</option>
+<option value="time (days) between cohort start and end" selected>time (days) between cohort start and end</option></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="shiny-panel-conditional" data-display-if="input.timeDistributionType==&#39;Table&#39;" data-ns-prefix="DiagnosticsExplorer-timeDistributions-">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-timeDistributions-selecatableCols-label" for="DiagnosticsExplorer-timeDistributions-selecatableCols">View Columns</label>
+                          <select data-actions-box="true" data-dropup-auto="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-timeDistributions-selecatableCols" class="selectpicker form-control" autocomplete="off" multiple="multiple"><option value="Average" selected>Average</option>
+<option value="SD" selected>SD</option>
+<option value="Min" selected>Min</option>
+<option value="P10" selected>P10</option>
+<option value="P25" selected>P25</option>
+<option value="Median" selected>Median</option>
+<option value="P75" selected>P75</option>
+<option value="P90" selected>P90</option>
+<option value="Max" selected>Max</option></select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="input.timeDistributionType==&#39;Table&#39;" data-ns-prefix="DiagnosticsExplorer-timeDistributions-">
+                    <div data-spinner-id="spinner-9f5b71d848e281d4d686f36acb079989" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-9f5b71d848e281d4d686f36acb079989" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-timeDistributions-timeDistributionTable" id="DiagnosticsExplorer-timeDistributions-timeDistributionTable" style="width:auto;height:auto;"></div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                        <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-c9f02a6c4ed61bc2fab3" width="960"></span>
+                        <script type="application/json" data-for="htmlwidget-c9f02a6c4ed61bc2fab3">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-timeDistributions-timeDistributionTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="input.timeDistributionType==&#39;Plot&#39;" data-ns-prefix="DiagnosticsExplorer-timeDistributions-">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group shiny-input-container">
+                          <div class="checkbox">
+                            <label>
+                              <input id="DiagnosticsExplorer-timeDistributions-showMaxValues" type="checkbox" class="shiny-input-checkbox"/>
+                              <span>Show max values</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-timeDistributions-plotRowHeight-label" for="DiagnosticsExplorer-timeDistributions-plotRowHeight">Plot row height (pixels)</label>
+                          <input id="DiagnosticsExplorer-timeDistributions-plotRowHeight" type="number" class="shiny-input-number form-control" value="400" min="200" max="2000"/>
+                        </div>
+                      </div>
+                    </div>
+                    <br/>
+                    <div id="DiagnosticsExplorer-timeDistributions-plotArea" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-conceptsInDataSource">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Concepts in Data Source</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing the concept ids observed in the database that are included in a concept set(s) of the selected cohort. The Subjects column contains the number of subjects in the entire database that have the specific concept. This count is <em>not</em> restricted to people in the cohort - but represents a database level characterization. Source concepts are identified in the _source_concept_id fields of the Common Data Model, (e.g. drug_source_concept_id) and are used to identify the specific source codes used in a database. Standard concepts are found using the _concept_id fields (e.g. drug_concept_id), and use the same coding system across all databases. Note: Per CDM conventions standard concept ids, may be used to populate _source_concept_id fields in domain tables, but non-standard concept ids may not be used to populate the standard fields in those domain tables. </p>
+
+<h4>Options</h4>
+<p>You can select a database in the side bar to see the concepts and counts observed in that database.</p>
+<p>Select the cohort and the specific concept set within that cohort to explore in the side bar.</p>
+<p>You can switch between Source Concepts and Standard Concepts at the top of the table.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are there source codes included that should not be? For example, in a concept set for hypertensive disorder, are hypotension codes included by accident?</li>
+<li>Are all expected codes present? For example, if we have a list of ICD-10 codes that have been used in literature to identify a cohort, are all those codes present?</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-conceptsInDataSource-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-body">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                        <div id="DiagnosticsExplorer-conceptsInDataSource-includedType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-conceptsInDataSource-includedType-label">
+                          <label class="control-label" id="DiagnosticsExplorer-conceptsInDataSource-includedType-label" for="DiagnosticsExplorer-conceptsInDataSource-includedType"></label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-conceptsInDataSource-includedType" value="Source fields"/>
+                              <span>Source fields</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-conceptsInDataSource-includedType" value="Standard fields" checked="checked"/>
+                              <span>Standard fields</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div id="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter-label">
+                          <label class="control-label" id="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter-label" for="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter"></label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter" value="Both"/>
+                              <span>Both</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter" value="Persons" checked="checked"/>
+                              <span>Persons</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTableColumnFilter" value="Records"/>
+                              <span>Records</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div data-spinner-id="spinner-5027fed84ed7cd1e166bfbbc2f6a4fe5" class="shiny-spinner-output-container shiny-spinner-hideui">
+                    <div class="load-container shiny-spinner-hidden load1">
+                      <div id="spinner-5027fed84ed7cd1e166bfbbc2f6a4fe5" class="loader">Loading...</div>
+                    </div>
+                    <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                    <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTable" id="DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTable" style="width:auto;height:auto;"></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                      <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-67e563688f879ff6d067" width="960"></span>
+                      <script type="application/json" data-for="htmlwidget-67e563688f879ff6d067">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-conceptsInDataSource-conceptsInDataSourceTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-orphanConcepts">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Orphan Concepts</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing the concept(s) observed in the datasource that are <em>not</em> included in a concept set of a cohort, but maybe considered. The following logic is used to identify concepts that might be relevant:</p>
+<ol>
+<li>Given a concept set expression, find all included concepts.
+<li>Find all names of those concepts, including synonyms, and the names of source concepts that map to them.</li>
+<li>Search for concepts (standard and source) that contain any of those names as substring.</li>
+<li>Filter those concepts to those that are not in the original set of concepts (i.e. orphans).</li>
+<li>Restrict the set of orphan concepts to those that appear in the CDM data source as either source concept or standard concept.</li>
+</ol>
+
+<p>The Subjects column contains the number of subjects in the entire data source that have the specific concept, i.e. it is <em>not</em> restricted to people in the cohort. This is a data source level characterization. Source concepts are identified in the _source_concept_id fields of the Common Data Model, (e.g. drug_source_concept_id) and are used to identify the specific source codes used in a data source. Standard concepts are found using the _concept_id fields (e.g. drug_concept_id), and use the same coding system across all databases.</p>
+
+<h4>Options</h4>
+<p>You can select a data source in the side bar to see the concepts and counts observed in that data source.</p>
+<p>Select the cohort and the specific concept set within that cohort to explore in the side bar.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are there concepts that are not included in the concept but should be? Note that the provided list likely contains many false positives.</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-orphanConcepts-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div id="DiagnosticsExplorer-orphanConcepts-orphanConceptsType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-orphanConcepts-orphanConceptsType-label">
+                        <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-orphanConceptsType-label" for="DiagnosticsExplorer-orphanConcepts-orphanConceptsType">Filters</label>
+                        <div class="shiny-options-group">
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsType" value="0" checked="checked"/>
+                            <span>All</span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsType" value="1"/>
+                            <span>Standard Only</span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsType" value="2"/>
+                            <span>Non Standard Only</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div id="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType-label">
+                        <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType-label" for="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType">Display</label>
+                        <div class="shiny-options-group">
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType" value="0" checked="checked"/>
+                            <span>All</span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType" value="1"/>
+                            <span>Persons</span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="DiagnosticsExplorer-orphanConcepts-orphanConceptsColumFilterType" value="2"/>
+                            <span>Records</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-generalSearchString-label" for="DiagnosticsExplorer-orphanConcepts-generalSearchString"></label>
+                        <input id="DiagnosticsExplorer-orphanConcepts-generalSearchString" type="text" class="shiny-input-text form-control" value="" placeholder="Search concepts"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-sortBy-label" for="DiagnosticsExplorer-orphanConcepts-sortBy">Sort By</label>
+                        <div>
+                          <select id="DiagnosticsExplorer-orphanConcepts-sortBy" class="shiny-input-select"></select>
+                          <script type="application/json" data-for="DiagnosticsExplorer-orphanConcepts-sortBy" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div id="DiagnosticsExplorer-orphanConcepts-shortByAsc" class="form-group shiny-input-radiogroup shiny-input-container" role="radiogroup" aria-labelledby="DiagnosticsExplorer-orphanConcepts-shortByAsc-label">
+                        <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-shortByAsc-label" for="DiagnosticsExplorer-orphanConcepts-shortByAsc">order</label>
+                        <div class="shiny-options-group">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="DiagnosticsExplorer-orphanConcepts-shortByAsc" value="ASC"/>
+                              <span>ascending</span>
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="DiagnosticsExplorer-orphanConcepts-shortByAsc" value="DESC" checked="checked"/>
+                              <span>descending</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-display-table">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <a id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-downloadFull" class="btn btn-default shiny-download-link disabled" href="" target="_blank" download aria-disabled="true" tabindex="-1">
+                          <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                          Download
+                        </a>
+                      </div>
+                    </div>
+                    <div data-spinner-id="spinner-8587bc5f538bea85e07f28423a3b85ea" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-8587bc5f538bea85e07f28423a3b85ea" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-tableView" id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-tableView" style="width:auto;height:auto;"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4 inline-tv">
+                        <div id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageNumber" class="shiny-text-output"></div>
+                        <div class="form-group shiny-input-container" style="width:90px;">
+                          <label class="control-label" id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageSize-label" for="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageSize">show</label>
+                          <div>
+                            <select id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageSize" class="shiny-input-select"><option value="10">10</option>
+<option value="25">25</option>
+<option value="50" selected>50</option>
+<option value="100">100</option></select>
+                            <script type="application/json" data-for="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageSize" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2"></div>
+                      <div class="col-sm-6" style="text-align:right;">
+                        <div id="DiagnosticsExplorer-orphanConcepts-orphanConceptsTable-pageActionButtons" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-indexEventBreakdown">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Index Events</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing the concepts belonging to the concept sets in the entry event definition that are observed on the index date. In other words, the table lists the concepts that likely triggered the cohort entry. The counts indicate number of cohort entries where the concepts was observed on the index date. Note that multiple concepts can be present on the index date, so the sum of counts might be greater than the cohort entry count.</p>
+
+<h4>Options</h4>
+<p>You can select multiple databases in the side bar to see counts from different databases side-by-side.</p>
+<p>Select the cohort to explore in the side bar.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Is one concept unexpectedly dominating? For example, if our cohort identifies exposure to drugs in a class, but we notice almost everyone enters the cohort based on a single drug, we may wonder whether our results will generalize to the class.</li>
+<li>Are the highest ranking concepts different across databases? For example, is everyone in one database initiating high-dose prescriptions, and everyone in another database low-dose prescriptions? 
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-indexEvents-selectedCohort" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-body">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                        <div id="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton-label">
+                          <label class="control-label" id="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton-label" for="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton">Concept type</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton" value="All" checked="checked"/>
+                              <span>All</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton" value="Standard concepts"/>
+                              <span>Standard concepts</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableRadioButton" value="Non Standard Concepts"/>
+                              <span>Non Standard Concepts</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      <td>
+                        <div id="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter-label">
+                          <label class="control-label" id="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter-label" for="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter">Display</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter" value="Both"/>
+                              <span>Both</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter" value="Records"/>
+                              <span>Records</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-indexEvents-indexEventBreakdownTableFilter" value="Persons" checked="checked"/>
+                              <span>Persons</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group shiny-input-container">
+                          <div class="checkbox">
+                            <label>
+                              <input id="DiagnosticsExplorer-indexEvents-showAsPercent" type="checkbox" class="shiny-input-checkbox" checked="checked"/>
+                              <span>Show persons as percentage</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div data-spinner-id="spinner-99320d02140a1bf3f0b594df39b3022b" class="shiny-spinner-output-container shiny-spinner-hideui">
+                    <div class="load-container shiny-spinner-hidden load1">
+                      <div id="spinner-99320d02140a1bf3f0b594df39b3022b" class="loader">Loading...</div>
+                    </div>
+                    <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                    <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-indexEvents-breakdownTable" id="DiagnosticsExplorer-indexEvents-breakdownTable" style="width:auto;height:auto;"></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                      <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-87f59820058f0c3742f9" width="960"></span>
+                      <script type="application/json" data-for="htmlwidget-87f59820058f0c3742f9">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-indexEvents-breakdownTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-visitContext">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Visit Context</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing the relationship between the cohort start date and visits recorded in the database. For each database, the table shows:</p>
+<ul>
+<li><strong>Visits Before</strong>: the number of visits recorded before the cohort start date. Note that if a person is in the same cohort twice, visits may be counted twice.</li>
+<li><strong>Visits Ongoing</strong>: the number of visits that were ongoing (excluding the visit start date) when the cohort started. Note that if a person is in the same cohort twice, visits may be counted twice.</li>
+<li><strong>Starting Simultaneous</strong>: the number of visits that started on the same day the cohort started.</li>
+<li><strong>Visits After</strong>: the number of visits recorded after the cohort start date. Note that if a person is in the same cohort twice, visits may be counted twice.</li>
+</ul>
+
+<h4>Options</h4>
+<p>You can select multiple databases in the side bar to see counts from different databases side-by-side.</p>
+<p>Select the cohort to explore in the side bar.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are cohorts starting in the right context? E.g. some cohorts may be expected to start predominantly in an inpatient setting.</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-visitContext-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-body">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                        <div id="DiagnosticsExplorer-visitContext-visitContextTableFilters" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-visitContext-visitContextTableFilters-label">
+                          <label class="control-label" id="DiagnosticsExplorer-visitContext-visitContextTableFilters-label" for="DiagnosticsExplorer-visitContext-visitContextTableFilters">Display</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextTableFilters" value="All" checked="checked"/>
+                              <span>All</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextTableFilters" value="Before"/>
+                              <span>Before</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextTableFilters" value="During"/>
+                              <span>During</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextTableFilters" value="Simultaneous"/>
+                              <span>Simultaneous</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextTableFilters" value="After"/>
+                              <span>After</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div id="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords-label">
+                          <label class="control-label" id="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords-label" for="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords">Display</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords" value="Persons" checked="checked"/>
+                              <span>Persons</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-visitContext-visitContextPersonOrRecords" value="Records"/>
+                              <span>Records</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td align="right"></td>
+                    </tr>
+                  </table>
+                  <div data-spinner-id="spinner-15139ce05b4b2e4985ded18253da019a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                    <div class="load-container shiny-spinner-hidden load1">
+                      <div id="spinner-15139ce05b4b2e4985ded18253da019a" class="loader">Loading...</div>
+                    </div>
+                    <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                    <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-visitContext-visitContextTable" id="DiagnosticsExplorer-visitContext-visitContextTable" style="width:auto;height:auto;"></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                      <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-e62849be4b04fba0a4e8" width="960"></span>
+                      <script type="application/json" data-for="htmlwidget-e62849be4b04fba0a4e8">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-visitContext-visitContextTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-cohortOverlap">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Cohort Overlap (subjects)</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>Stacked bar graph showing the overlap between two cohorts, and a table listing several overlap statistics.</p>
+
+<p>The stacked bar shows the overlap in terms of subjects. It shows the number of subjects that belong to each cohort and to both. The diagram does <em>not</em> consider whether the subjects were in the different cohorts at the same time.</p>
+<p>The table show the same information and more:</p>
+<ul>
+<li>Subject in either cohort: The number of subjects that enter one or both cohorts. (The union)</li>
+<li>Subject in both cohort: The number of subjects that enter both cohorts, although not necessarily at the same time. (The intersection)</li>
+<li>Subject in target not in comparator: The number of subjects that enter the target cohort, but not the comparator cohort. (Subtracting the comparator from the target)</li>
+<li>Subject in comparator not in target: The number of subjects that enter the comparator cohort, but not the target cohort. (Subtracting the comparator from the target)</li>
+<li>Subject in target before comparator: The number of subjects that enter both cohorts, but enter the target cohort before entering the comparator cohort. This number considers only the first entry per cohort per person.</li>
+<li>Subject in comparator before target: The number of subjects that enter both cohorts, but enter the comparator cohort before entering the target cohort. This number considers only the first entry per cohort per person.</li>
+<li>Subject in target and comparator on same day: The number of subjects that enter both cohorts on the same date. This number considers only the first entry per cohort per person.</li>
+<li>Subject having target start during comparator: The number of subjects that enter the target cohort during the comparator cohort, meaning comparator cohort start date &lt;= target cohort start date &lt;= comparator cohort end date. This number considers only the first entry per cohort per person.</li>
+<li>Subject having comparator start during target: The number of subjects that enter the comparator cohort during the target cohort, meaning target cohort start date &lt;= comparator cohort start date &lt;= target cohort end date. This number considers only the first entry per cohort per person.</li>
+</ul>
+
+<h4>Options</h4>
+<p>You can select one or more database in the side bar.</p>
+<p>You can select the (target) cohort(s) and comparator cohort(s) in the side bar.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are there many people in both cohorts? For example, if we want to compare two exposures, are there many people that receive both?</li>
+<li>Is the overlap of sufficient size for a specific research question? For example, if we wish to study the effect of an exposure on an outcome, we may require a minimum number of outcomes during exposure.</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div class="col-sm-100%">
+              <div class="box box-warning">
+                <div class="box-body">
+                  <div style="max-height: 100px; overflow-y: auto">
+                    <div id="DiagnosticsExplorer-cohortOverlap-selectedCohorts" class="shiny-html-output"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="box box-primary">
+                <div class="box-body">
+                  <div class="tabbable">
+                    <ul class="nav nav-pills" data-tabsetid="4485">
+                      <li class="active">
+                        <a href="#tab-4485-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+                      </li>
+                      <li>
+                        <a href="#tab-4485-2" data-toggle="tab" data-bs-toggle="tab" data-value="Table">Table</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" data-tabsetid="4485">
+                      <div class="tab-pane active" data-value="Plot" id="tab-4485-1">
+                        <div id="DiagnosticsExplorer-cohortOverlap-overlapPlotType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-cohortOverlap-overlapPlotType-label">
+                          <label class="control-label" id="DiagnosticsExplorer-cohortOverlap-overlapPlotType-label" for="DiagnosticsExplorer-cohortOverlap-overlapPlotType"></label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortOverlap-overlapPlotType" value="Percentages" checked="checked"/>
+                              <span>Percentages</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-cohortOverlap-overlapPlotType" value="Counts"/>
+                              <span>Counts</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div data-spinner-id="spinner-41cd1484ec8bb008d74cb2d11c32ddea" class="shiny-spinner-output-container shiny-spinner-hideui">
+                          <div class="load-container shiny-spinner-hidden load1">
+                            <div id="spinner-41cd1484ec8bb008d74cb2d11c32ddea" class="loader">Loading...</div>
+                          </div>
+                          <div id="DiagnosticsExplorer-cohortOverlap-overlapPlotContainer">
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="DiagnosticsExplorer-cohortOverlap-overlapPlot" style="width:100%;height:300px;"></div>
+                          </div>
+                        </div>
+                        <script>
+        Shiny.addCustomMessageHandler('DiagnosticsExplorer-cohortOverlap-overlapPlotHeight', function(height) {
+          let plotSpace = document.getElementById('DiagnosticsExplorer-cohortOverlap-overlapPlotContainer');
+          plotSpace.querySelector('.svg-container').style.height = height;
+          plotSpace.querySelector('.js-plotly-plot').style.height = height;
+        });
+      </script>
+                      </div>
+                      <div class="tab-pane" data-value="Table" id="tab-4485-2">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group shiny-input-container">
+                              <div class="checkbox">
+                                <label>
+                                  <input id="DiagnosticsExplorer-cohortOverlap-showAsPercentage" type="checkbox" class="shiny-input-checkbox" checked="checked"/>
+                                  <span>Show As Percentage</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group shiny-input-container">
+                              <div class="checkbox">
+                                <label>
+                                  <input id="DiagnosticsExplorer-cohortOverlap-showCohortIds" type="checkbox" class="shiny-input-checkbox" checked="checked"/>
+                                  <span>Show Cohort Ids</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div data-spinner-id="spinner-410543a5ce705693c42e0e1b9f73f3d2" class="shiny-spinner-output-container shiny-spinner-hideui">
+                          <div class="load-container shiny-spinner-hidden load1">
+                            <div id="spinner-410543a5ce705693c42e0e1b9f73f3d2" class="loader">Loading...</div>
+                          </div>
+                          <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                          <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-cohortOverlap-overlapTable" id="DiagnosticsExplorer-cohortOverlap-overlapTable" style="width:auto;height:auto;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-cohortCharacterization">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Cohort Characterization</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table showing cohort characteristics (covariates). These characteristics are captured on or before the cohort start date. There is a Pretty and a Raw version of this table.</p>
+<p>The Pretty table shows the standard OHDSI characteristics table, which includes only covariates that were manually selected to provide a general overview of the comorbidities and medications of the cohort. These are all binary covariates, and the table shows the proportion (%) of the cohort entries having the covariate.<p>
+<p>The Raw table shows all captured covariates. These include binary and continuous covariates (e.g. the Charlson comorbidity index). For each covariate the table lists the mean, which for binary covariates is equal to the proportion, and the standard deviation (SD).</p>
+
+<h4>Options</h4>
+<p>You can select multiple databases in the side bar to see cohort characteristics from different databases side-by-side in the same table.</p>
+<p>Select the cohort to explore in the side bar.</p>
+<p>Select either the Pretty or the Raw table at the top of the table.</p>
+
+<h4>What to look for</h4>
+<ul>
+<li>Are the characteristics of the cohort as expected? For example, do people have the expected comorbidities?</li>
+<li>Do the characteristics of the cohort differ much per database?</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-body">
+                  <div id="DiagnosticsExplorer-characterization-charType" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-characterization-charType-label">
+                    <label class="control-label" id="DiagnosticsExplorer-characterization-charType-label" for="DiagnosticsExplorer-characterization-charType">Table type</label>
+                    <div class="shiny-options-group">
+                      <label class="radio-inline">
+                        <input type="radio" name="DiagnosticsExplorer-characterization-charType" value="Pretty" checked="checked"/>
+                        <span>Pretty</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="DiagnosticsExplorer-characterization-charType" value="Raw"/>
+                        <span>Raw</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-characterization-targetCohort-label" for="DiagnosticsExplorer-characterization-targetCohort">Select Cohort</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-max-options="5" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-characterization-targetCohort" class="selectpicker form-control" autocomplete="off"></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-characterization-targetDatabase-label" for="DiagnosticsExplorer-characterization-targetDatabase">Select Database (s)</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-max-options="5" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-characterization-targetDatabase" class="selectpicker form-control" autocomplete="off" multiple="multiple"></select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="input.charType == &#39;Raw&#39;" data-ns-prefix="DiagnosticsExplorer-characterization-">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-timeIdChoices-label" for="DiagnosticsExplorer-characterization-timeIdChoices">Temporal Window (s)</label>
+                          <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-max-options="5" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-characterization-timeIdChoices" class="selectpicker form-control" autocomplete="off" multiple="multiple"></select>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group shiny-input-container shiny-input-container-inline" style="width:100%; display: inline-block;">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-selectedRawAnalysisIds-label" for="DiagnosticsExplorer-characterization-selectedRawAnalysisIds" style="display: inline-block;">Analysis name</label>
+                          <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-width="100%" data-state-input="true" id="DiagnosticsExplorer-characterization-selectedRawAnalysisIds" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                            <option value="" style="color: black;" selected="selected"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group shiny-input-container shiny-input-container-inline" style="width:100%; display: inline-block;">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-characterizationDomainIdFilter-label" for="DiagnosticsExplorer-characterization-characterizationDomainIdFilter" style="display: inline-block;">Domain name</label>
+                          <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-width="100%" data-state-input="true" id="DiagnosticsExplorer-characterization-characterizationDomainIdFilter" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                            <option value="" style="color: black;" selected="selected"></option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div id="DiagnosticsExplorer-characterization-proportionOrContinuous" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-characterization-proportionOrContinuous-label">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-proportionOrContinuous-label" for="DiagnosticsExplorer-characterization-proportionOrContinuous">Covariate type(s)</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-characterization-proportionOrContinuous" value="All" checked="checked"/>
+                              <span>All</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-characterization-proportionOrContinuous" value="Proportion"/>
+                              <span>Proportion</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-characterization-proportionOrContinuous" value="Continuous"/>
+                              <span>Continuous</span>
+                            </label>
+                          </div>
+                        </div>
+                        <p>Percentage displayed where only proportional data is selected</p>
+                      </div>
+                      <div class="col-sm-4">
+                        <div id="DiagnosticsExplorer-characterization-characterizationColumnFilters" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-characterization-characterizationColumnFilters-label">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-characterizationColumnFilters-label" for="DiagnosticsExplorer-characterization-characterizationColumnFilters">Display</label>
+                          <div class="shiny-options-group">
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-characterization-characterizationColumnFilters" value="Mean and Standard Deviation"/>
+                              <span>Mean and Standard Deviation</span>
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="DiagnosticsExplorer-characterization-characterizationColumnFilters" value="Mean only" checked="checked"/>
+                              <span>Mean only</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group shiny-input-container">
+                          <label class="control-label" id="DiagnosticsExplorer-characterization-selectedConceptSet-label" for="DiagnosticsExplorer-characterization-selectedConceptSet">Subset to Concept Set</label>
+                          <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-characterization-selectedConceptSet" class="selectpicker form-control" autocomplete="off"></select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="input.charType == &#39;Pretty&#39;" data-ns-prefix="DiagnosticsExplorer-characterization-">
+                    <button id="DiagnosticsExplorer-characterization-generateReport" type="button" class="btn btn-default action-button">Generate Table</button>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="input.charType == &#39;Raw&#39;" data-ns-prefix="DiagnosticsExplorer-characterization-">
+                    <button id="DiagnosticsExplorer-characterization-generateRaw" type="button" class="btn btn-default action-button">Generate Table</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shiny-panel-conditional" data-display-if="input.generateReport &gt; 0 &amp;&amp; input.charType == &#39;Pretty&#39;" data-ns-prefix="DiagnosticsExplorer-characterization-">
+              <div id="DiagnosticsExplorer-characterization-selections" class="shiny-html-output"></div>
+              <div>
+                <div class="box">
+                  <div class="box-body">
+                    <div data-spinner-id="spinner-080ffcc99a2d66ed4c6f69ec78139b60" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-080ffcc99a2d66ed4c6f69ec78139b60" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-characterization-characterizationTable" id="DiagnosticsExplorer-characterization-characterizationTable" style="width:auto;height:auto;"></div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                        <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-c0e99edc13dfb710642b" width="960"></span>
+                        <script type="application/json" data-for="htmlwidget-c0e99edc13dfb710642b">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-characterization-characterizationTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shiny-panel-conditional" data-display-if="input.generateRaw &gt; 0 &amp;&amp; input.charType == &#39;Raw&#39;" data-ns-prefix="DiagnosticsExplorer-characterization-">
+              <div id="DiagnosticsExplorer-characterization-selectionsRaw" class="shiny-html-output"></div>
+              <div>
+                <div class="box">
+                  <div class="box-body">
+                    <div class="tabbable">
+                      <ul class="nav nav-pills" data-tabsetid="7556">
+                        <li class="active">
+                          <a href="#tab-7556-1" data-toggle="tab" data-bs-toggle="tab" data-value="Group by Database">Group by Database</a>
+                        </li>
+                        <li>
+                          <a href="#tab-7556-2" data-toggle="tab" data-bs-toggle="tab" data-value="Group by Time Windows">Group by Time Windows</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" data-tabsetid="7556">
+                        <div class="tab-pane active" data-value="Group by Database" id="tab-7556-1">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-sortByRaw-label" for="DiagnosticsExplorer-characterization-sortByRaw">Sort By</label>
+                                <div>
+                                  <select id="DiagnosticsExplorer-characterization-sortByRaw" class="shiny-input-select"></select>
+                                  <script type="application/json" data-for="DiagnosticsExplorer-characterization-sortByRaw" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div id="DiagnosticsExplorer-characterization-shortByRawAsc" class="form-group shiny-input-radiogroup shiny-input-container" role="radiogroup" aria-labelledby="DiagnosticsExplorer-characterization-shortByRawAsc-label">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-shortByRawAsc-label" for="DiagnosticsExplorer-characterization-shortByRawAsc">order</label>
+                                <div class="shiny-options-group">
+                                  <div class="radio">
+                                    <label>
+                                      <input type="radio" name="DiagnosticsExplorer-characterization-shortByRawAsc" value="ASC"/>
+                                      <span>ascending</span>
+                                    </label>
+                                  </div>
+                                  <div class="radio">
+                                    <label>
+                                      <input type="radio" name="DiagnosticsExplorer-characterization-shortByRawAsc" value="DESC" checked="checked"/>
+                                      <span>descending</span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-generalSearchString-label" for="DiagnosticsExplorer-characterization-generalSearchString"></label>
+                                <input id="DiagnosticsExplorer-characterization-generalSearchString" type="text" class="shiny-input-text form-control" value="" placeholder="Search covariates"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="DiagnosticsExplorer-characterization-rawCharTbl-display-table">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <a id="DiagnosticsExplorer-characterization-rawCharTbl-downloadFull" class="btn btn-default shiny-download-link disabled" href="" target="_blank" download aria-disabled="true" tabindex="-1">
+                                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                                  Download
+                                </a>
+                              </div>
+                            </div>
+                            <div data-spinner-id="spinner-62af0a01069b11aa9057e6a259867a6a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                              <div class="load-container shiny-spinner-hidden load1">
+                                <div id="spinner-62af0a01069b11aa9057e6a259867a6a" class="loader">Loading...</div>
+                              </div>
+                              <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                              <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-characterization-rawCharTbl-tableView" id="DiagnosticsExplorer-characterization-rawCharTbl-tableView" style="width:auto;height:auto;"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4 inline-tv">
+                                <div id="DiagnosticsExplorer-characterization-rawCharTbl-pageNumber" class="shiny-text-output"></div>
+                                <div class="form-group shiny-input-container" style="width:90px;">
+                                  <label class="control-label" id="DiagnosticsExplorer-characterization-rawCharTbl-pageSize-label" for="DiagnosticsExplorer-characterization-rawCharTbl-pageSize">show</label>
+                                  <div>
+                                    <select id="DiagnosticsExplorer-characterization-rawCharTbl-pageSize" class="shiny-input-select"><option value="10">10</option>
+<option value="25">25</option>
+<option value="50">50</option>
+<option value="100" selected>100</option></select>
+                                    <script type="application/json" data-for="DiagnosticsExplorer-characterization-rawCharTbl-pageSize" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-6" style="text-align:right;">
+                                <div id="DiagnosticsExplorer-characterization-rawCharTbl-pageActionButtons" class="shiny-html-output"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane" data-value="Group by Time Windows" id="tab-7556-2">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-sortByRawTemporal-label" for="DiagnosticsExplorer-characterization-sortByRawTemporal">Sort By</label>
+                                <div>
+                                  <select id="DiagnosticsExplorer-characterization-sortByRawTemporal" class="shiny-input-select"></select>
+                                  <script type="application/json" data-for="DiagnosticsExplorer-characterization-sortByRawTemporal" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div id="DiagnosticsExplorer-characterization-shortByRawAscTemporal" class="form-group shiny-input-radiogroup shiny-input-container" role="radiogroup" aria-labelledby="DiagnosticsExplorer-characterization-shortByRawAscTemporal-label">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-shortByRawAscTemporal-label" for="DiagnosticsExplorer-characterization-shortByRawAscTemporal">order</label>
+                                <div class="shiny-options-group">
+                                  <div class="radio">
+                                    <label>
+                                      <input type="radio" name="DiagnosticsExplorer-characterization-shortByRawAscTemporal" value="ASC"/>
+                                      <span>ascending</span>
+                                    </label>
+                                  </div>
+                                  <div class="radio">
+                                    <label>
+                                      <input type="radio" name="DiagnosticsExplorer-characterization-shortByRawAscTemporal" value="DESC" checked="checked"/>
+                                      <span>descending</span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" id="DiagnosticsExplorer-characterization-generalSearchStringTemporal-label" for="DiagnosticsExplorer-characterization-generalSearchStringTemporal"></label>
+                                <input id="DiagnosticsExplorer-characterization-generalSearchStringTemporal" type="text" class="shiny-input-text form-control" value="" placeholder="Search covariates"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="DiagnosticsExplorer-characterization-rawCharTblTemporal-display-table">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <a id="DiagnosticsExplorer-characterization-rawCharTblTemporal-downloadFull" class="btn btn-default shiny-download-link disabled" href="" target="_blank" download aria-disabled="true" tabindex="-1">
+                                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                                  Download
+                                </a>
+                              </div>
+                            </div>
+                            <div data-spinner-id="spinner-2f1d536d00503beab7a8d2d410eff3d0" class="shiny-spinner-output-container shiny-spinner-hideui">
+                              <div class="load-container shiny-spinner-hidden load1">
+                                <div id="spinner-2f1d536d00503beab7a8d2d410eff3d0" class="loader">Loading...</div>
+                              </div>
+                              <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                              <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-characterization-rawCharTblTemporal-tableView" id="DiagnosticsExplorer-characterization-rawCharTblTemporal-tableView" style="width:auto;height:auto;"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4 inline-tv">
+                                <div id="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageNumber" class="shiny-text-output"></div>
+                                <div class="form-group shiny-input-container" style="width:90px;">
+                                  <label class="control-label" id="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageSize-label" for="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageSize">show</label>
+                                  <div>
+                                    <select id="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageSize" class="shiny-input-select"><option value="10">10</option>
+<option value="25">25</option>
+<option value="50">50</option>
+<option value="100" selected>100</option></select>
+                                    <script type="application/json" data-for="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageSize" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-6" style="text-align:right;">
+                                <div id="DiagnosticsExplorer-characterization-rawCharTblTemporal-pageActionButtons" class="shiny-html-output"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-compareCohortCharacterization">
+            <div class="col-sm-100%">
+              <div class="box collapsed-box">
+                <div class="box-header">
+                  <h3 class="box-title">Compare Cohort Characterization</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fas fa-plus" role="presentation" aria-label="plus icon"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body"><h4>Description</h4>
+<p>A table or plot showing cohort characteristics (covariates) for two cohorts side-by-side. These characteristics are captured at different time windows that can be selected </p>
+<p>The Raw table shows all captured covariates. These include binary and continuous covariates (e.g. the Charlson comorbidity index). For each covariate the table lists the mean, which for binary covariates is equal to the proportion, the standard deviation (SD), and the standardized difference of the mean (StdDiff).</p>
+<p>The plot shows all covariates, include binary and continuous covariates. The x-axis represents the mean value in the target cohort, the y-axis the mean value in the comparator cohort. Each dot represents a covariate, and the color indicates the domain of the covariate being plotted. In the plot, domains are fixed (even though additional domains may exist in data) to ensure the color of the domains are consistently applied. </p>
+<p>Filters maybe used to limit the number of covariates being visualized/tabulated. Filters are available for analysis names and domain names. </p>
+
+<p> You can either select different cohorts in the same database, the same cohort in different database or different cohorts in different databases</p>
+
+
+<h4>What to look for</h4>
+<ul>
+<li>Are there major differences between the two cohorts? For example, if we wish to compute a propensity score between two cohorts, concepts that have very high proportion in one cohort and a very low proportion in the other may lead to a perfectly predictive model.</li>
+<li>In general, how comparable are two cohorts? If we wish to compare two exposures, but the cohorts differ over many characteristics, we may be able to fit a propensity model and compute an estimate, but we may have concerns over the generalizability of the results.</li>
+</ul>
+
+</div>
+              </div>
+            </div>
+            <div>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Compare cohort characterization</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-targetCohort-label" for="DiagnosticsExplorer-compareCohortCharacterization-targetCohort">Target Cohort</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-targetCohort" class="selectpicker form-control" autocomplete="off"></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-targetDatabase-label" for="DiagnosticsExplorer-compareCohortCharacterization-targetDatabase">Target Database</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-targetDatabase" class="selectpicker form-control" autocomplete="off"></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-comparatorCohort-label" for="DiagnosticsExplorer-compareCohortCharacterization-comparatorCohort">Comparator Cohort</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-comparatorCohort" class="selectpicker form-control" autocomplete="off"></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-comparatorDatabase-label" for="DiagnosticsExplorer-compareCohortCharacterization-comparatorDatabase">Comparator Database</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-comparatorDatabase" class="selectpicker form-control" autocomplete="off"></select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoices-label" for="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoices">Temporal Window (s)</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-max-options="5" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoices" class="selectpicker form-control" autocomplete="off" multiple="multiple"></select>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-analysisNameFilter-label" for="DiagnosticsExplorer-compareCohortCharacterization-analysisNameFilter">Analysis name</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-analysisNameFilter" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                          <option value="" style="color: black;" selected="selected"></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-domainIdFilter-label" for="DiagnosticsExplorer-compareCohortCharacterization-domainIdFilter">Domain name</label>
+                        <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-domainIdFilter" class="selectpicker form-control" autocomplete="off" multiple="multiple">
+                          <option value="" style="color: black;" selected="selected"></option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group shiny-input-container">
+                        <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-minMeanFilterVal-label" for="DiagnosticsExplorer-compareCohortCharacterization-minMeanFilterVal">Min Covariate Mean</label>
+                        <input id="DiagnosticsExplorer-compareCohortCharacterization-minMeanFilterVal" type="number" class="shiny-input-number form-control" value="0.005" min="0" max="0.9" step="0.005"/>
+                      </div>
+                    </div>
+                  </div>
+                  <button id="DiagnosticsExplorer-compareCohortCharacterization-generatePlot" type="button" class="btn btn-default action-button">Generate Report</button>
+                </div>
+              </div>
+            </div>
+            <div class="shiny-panel-conditional" data-display-if="input.generatePlot != 0" data-ns-prefix="DiagnosticsExplorer-compareCohortCharacterization-">
+              <div id="DiagnosticsExplorer-compareCohortCharacterization-selectionsPlot" class="shiny-html-output"></div>
+              <div>
+                <div class="box box-primary">
+                  <div class="box-body">
+                    <div class="tabbable">
+                      <ul class="nav nav-pills" data-tabsetid="2125">
+                        <li class="active">
+                          <a href="#tab-2125-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+                        </li>
+                        <li>
+                          <a href="#tab-2125-2" data-toggle="tab" data-bs-toggle="tab" data-value="Raw Table">Raw Table</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" data-tabsetid="2125">
+                        <div class="tab-pane active" data-value="Plot" id="tab-2125-1">
+                          <div data-spinner-id="spinner-59f652c8e5ab8f20cca490dbe2d762d3" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-59f652c8e5ab8f20cca490dbe2d762d3" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="DiagnosticsExplorer-compareCohortCharacterization-compareCohortCharacterizationBalancePlot" style="width:100%;height:100%;"></div>
+                          </div>
+                        </div>
+                        <div class="tab-pane" data-value="Raw Table" id="tab-2125-2">
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <div id="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous-label">
+                                <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous-label" for="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous">Covariate Type</label>
+                                <div class="shiny-options-group">
+                                  <label class="radio-inline">
+                                    <input type="radio" name="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous" value="All"/>
+                                    <span>All</span>
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous" value="Proportion" checked="checked"/>
+                                    <span>Proportion</span>
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="DiagnosticsExplorer-compareCohortCharacterization-proportionOrContinuous" value="Continuous"/>
+                                    <span>Continuous</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-3">
+                              <div id="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters-label">
+                                <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters-label" for="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters">Display values</label>
+                                <div class="shiny-options-group">
+                                  <label class="radio-inline">
+                                    <input type="radio" name="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters" value="Mean" checked="checked"/>
+                                    <span>Mean</span>
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" name="DiagnosticsExplorer-compareCohortCharacterization-compareCharacterizationColumnFilters" value="Mean and Standard Deviation"/>
+                                    <span>Mean and Standard Deviation</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="form-group shiny-input-container">
+                                <div class="checkbox">
+                                  <label>
+                                    <input id="DiagnosticsExplorer-compareCohortCharacterization-showOnlyMutualCovariates" type="checkbox" class="shiny-input-checkbox"/>
+                                    <span>Show only covariates found in target and comparator</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" id="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoicesSingle-label" for="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoicesSingle">Temporal Window</label>
+                                <select data-actions-box="true" data-live-search="true" data-live-search-placeholder="Type here to search" data-live-search-style="contains" data-size="10" data-virtual-scroll="50" data-state-input="true" id="DiagnosticsExplorer-compareCohortCharacterization-timeIdChoicesSingle" class="selectpicker form-control" autocomplete="off"></select>
+                              </div>
+                            </div>
+                          </div>
+                          <div data-spinner-id="spinner-59815f304067792347dc4ae74506907c" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-59815f304067792347dc4ae74506907c" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-compareCohortCharacterization-compareCohortCharacterizationTable" id="DiagnosticsExplorer-compareCohortCharacterization-compareCohortCharacterizationTable" style="width:auto;height:auto;"></div>
+                          </div>
+                          <div style="text-align:right;">
+                            <div style="text-decoration: underline; text-decoration-style: dotted; cursor: help">
+                              <span class="tippy html-widget html-fill-item" height="500" id="htmlwidget-e13a9666d8dee897df0b" width="960"></span>
+                              <script type="application/json" data-for="htmlwidget-e13a9666d8dee897df0b">{"x":{"opts":{"content":"Note, will not download live values filtered in table, groupings, or any graphical/stylstic elements"},"text":"<button onclick=\"Reactable.downloadDataCSV(&#39;DiagnosticsExplorer-compareCohortCharacterization-compareCohortCharacterizationTable&#39;)\">Download as CSV<\/button>"},"evals":[],"jsHooks":[]}</script>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="shiny-tab-databaseInformation">
+            <div>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Execution meta-data</h3>
+                </div>
+                <div class="box-body">
+                  <p>Each entry relates to execution on a given CDM. Results are merged between executions incrementally</p>
+                  <div data-spinner-id="spinner-21cd4ab41635a77b1a193297c720a75b" class="shiny-spinner-output-container shiny-spinner-hideui">
+                    <div class="load-container shiny-spinner-hidden load1">
+                      <div id="spinner-21cd4ab41635a77b1a193297c720a75b" class="loader">Loading...</div>
+                    </div>
+                    <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                    <div class="reactable html-widget html-widget-output shiny-report-size html-fill-item" data-reactable-output="DiagnosticsExplorer-databaseInformation-databaseInformationTable" id="DiagnosticsExplorer-databaseInformation-databaseInformationTable" style="width:auto;height:auto;"></div>
+                  </div>
+                  <div class="shiny-panel-conditional" data-display-if="output.databaseInformationTableIsSelected == true" data-ns-prefix="DiagnosticsExplorer-databaseInformation-">
+                    <div>
+                      <div class="box">
+                        <div class="box-header">
+                          <h3 class="box-title">
+                            <div id="DiagnosticsExplorer-databaseInformation-metadataInfoTitle" class="shiny-html-output"></div>
+                          </h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse">
+                              <i class="fas fa-minus" role="presentation" aria-label="minus icon"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <div id="DiagnosticsExplorer-databaseInformation-metadataInfoDetailsText" class="shiny-html-output"></div>
+                          <div>
+                            <div class="box">
+                              <div class="box-header">
+                                <div class="box-tools pull-right">
+                                  <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fas fa-minus" role="presentation" aria-label="minus icon"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="box-body">
+                                <pre class="shiny-text-output noplaceholder" id="DiagnosticsExplorer-databaseInformation-argumentsAtDiagnosticsInitiationJson"></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>

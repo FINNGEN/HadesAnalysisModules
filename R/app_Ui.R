@@ -6,13 +6,46 @@
 #' @importFrom shinyjs useShinyjs hidden
 #' @noRd
 app_ui <- function(request) {
-  shiny::tagList(
-    shinyjs::useShinyjs(),
-    # hidden button triggered when the new module-ui is flushed to call the module-server
-    # also serves as reference to insert the new module-ui under it
-    shinyjs::hidden(
-      shiny::actionButton("hidenButton", "hidenButton")
+
+  # get options from url
+  analysisTypeFromOptions <- getOption("HadesAnalysisModules.analysisType")
+  pathToResultsDatabaseFromOptions <- getOption("HadesAnalysisModules.pathToResultsDatabase")
+
+  # if not options it means that the server did not receive the parameters
+  if (analysisTypeFromOptions == "" || pathToResultsDatabaseFromOptions== "") {
+    return(
+      shiny::tagList(
+        shinyjs::useShinyjs(),
+        shiny::tags$div(
+          shiny::tags$p("Loading ...")
+        )
+      )
     )
-  )
+  }else{
+
+    if (file.exists(pathToResultsDatabaseFromOptions) == FALSE) {
+      return(
+        shiny::tagList(
+          shiny::tags$div(
+            shiny::tags$p("The path to the results database does not exist: ", pathToResultsDatabaseFromOptions)
+          )
+        )
+      )
+    }
+
+    if (analysisTypeFromOptions == "CohortDiagnostics") {
+      return(
+        mod_cohortDiagnosticsVisualization_ui(pathToResultsDatabase = pathToResultsDatabaseFromOptions)
+      )
+    }
+
+    return(
+      shiny::tagList(
+        shiny::tags$div(
+          shiny::tags$p("The analysis type is not supported: ", analysisTypeFromOptions)
+        )
+      )
+    )
+  }
 
 }

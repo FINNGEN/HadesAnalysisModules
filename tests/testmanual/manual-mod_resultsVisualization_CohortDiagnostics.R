@@ -48,9 +48,7 @@ CohortDiagnostics::launchDiagnosticsExplorer(pathToResultsDatabase, launch.brows
 devtools::load_all(".")
 
 app <- shiny::shinyApp(
-  shiny::fluidPage(
-    mod_cohortDiagnosticsVisualization_ui( pathToResultsDatabase)
-  ),
+  mod_cohortDiagnosticsVisualization_ui( pathToResultsDatabase),
   function(input,output,session){
     mod_cohortDiagnosticsVisualization_server(pathToResultsDatabase)
   },
@@ -65,7 +63,9 @@ devtools::load_all(".")
 options = list(launch.browser=FALSE, port = 5907)
 
 browseURL(paste0("http://localhost:5907/?analysisType=CohortDiagnostics&pathToResultsDatabase=", pathToResultsDatabase))
+
 run_app(options = options)
 
 
-
+# write to textfile
+a$value |> as.character() |> brio::writeLines(con  = "manualtest-mod_resultsVisualization_CohortDiagnostics.html")

@@ -10,7 +10,7 @@
 app_server <- function(input, output, session) {
 
   #
-  # Retrieve path from the URL and copy them to r$pathToResultsDatabase
+  # Retrieve path from the URL and copy them to
   #
   rf_urlParams <- shiny::reactive({
     query <- shiny::parseQueryString(session$clientData$url_search)
@@ -19,7 +19,7 @@ app_server <- function(input, output, session) {
     if (!is.null(analysisType) && !is.null(pathToResultsDatabase)) {
       return(list(analysisType = analysisType, pathToResultsDatabase = pathToResultsDatabase))
     }else{
-      return(list(analysisType = "CohortDiagnostics", pathToResultsDatabase = "/var/folders/sv/b7srhyqn3fnd5hz384ppxlbs7dcz72/T//RtmpAaaPRL/testtimeCohortDiagnostics/results/CohortDiagnosticsResults.sqlite"))
+      return(list(analysisType = "", pathToResultsDatabase = ""))
     }
   })
 
@@ -29,55 +29,39 @@ app_server <- function(input, output, session) {
   shiny::observe({
     shiny::req(rf_urlParams())
 
-    analysisType <- rf_urlParams()$analysisType
-    pathToResultsDatabase <- rf_urlParams()$pathToResultsDatabase
+    # get parameters from url
+    analysisTypeFromUrl <- rf_urlParams()$analysisType
+    pathToResultsDatabaseFromUrl <- rf_urlParams()$pathToResultsDatabase
+
+    # get parameters from options
+    analysisTypeFromOptions <- getOption("HadesAnalysisModules.analysisType")
+    pathToResultsDatabaseFromOptions <- getOption("HadesAnalysisModules.pathToResultsDatabase")
 
     # log start
     ParallelLogger::logInfo("[Start] Start logging")
-    ParallelLogger::logInfo("[Start] analysisType: ", analysisType)
-    ParallelLogger::logInfo("[Start] pathToResultsDatabase: ", pathToResultsDatabase)
+    ParallelLogger::logInfo("[Start] analysisTypeFromUrl: ", analysisTypeFromUrl, ", pathToResultsDatabaseFromUrl: ", pathToResultsDatabaseFromUrl)
+    ParallelLogger::logInfo("[Start] analysisTypeFromOptions: ", analysisTypeFromOptions, ", pathToResultsDatabaseFromOptions: ", pathToResultsDatabaseFromOptions)
 
-    # select module ui based on analysisType
-    if (analysisType == "CohortDiagnostics") {
-      ui <- mod_cohortDiagnosticsVisualization_ui(pathToResultsDatabase)
+    # if parameters empty or have change, the update and reload
+    if (
+      analysisTypeFromUrl != analysisTypeFromOptions || pathToResultsDatabaseFromUrl != pathToResultsDatabaseFromOptions
+      ) {
+      options("HadesAnalysisModules.analysisType" = analysisTypeFromUrl)
+      options("HadesAnalysisModules.pathToResultsDatabase" = pathToResultsDatabaseFromUrl)
+      ParallelLogger::logInfo("[Start] Reload UI ")
+      session$reload()
+    }else{
+      # if up to date call module server
+      if(analysisTypeFromOptions == "CohortDiagnostics" & file.exists(pathToResultsDatabaseFromOptions) == TRUE){
+        mod_cohortDiagnosticsVisualization_server(pathToResultsDatabaseFromOptions)
+      }
     }
 
-    # load module ui
-    shiny::insertUI(
-      selector = "#hidenButton",
-      where = "afterEnd",
-      ui = ui
-    )
-
-    ParallelLogger::logInfo("[Start] Loaded module UI for ", analysisType)
-
-    # trigger button on flushed
-    shiny::onFlushed(function (){
-      # shinyjs::runjs('$(".wrapper").css("height", "auto");')
-      # shinyjs::runjs('$(".shiny-spinner-placeholder").hide();')
-      # shinyjs::runjs('$(".load-container.shiny-spinner-hidden.load1").hide();')
-      shinyjs::runjs('$("#hidenButton").click();')
-    })
+    ParallelLogger::logInfo("[Start] Loaded module server for ", analysisTypeFromOptions)
 
   })
 
-  #
-  # when the button is clicked after flushed, load the module server,  rf_pathToResultsDatabase
-  #
-  shiny::observeEvent(input$hidenButton,{
-    shiny::req(rf_urlParams())
 
-    analysisType <- rf_urlParams()$analysisType
-    pathToResultsDatabase <- rf_urlParams()$pathToResultsDatabase
-
-    # load module server based on analysisType
-    if(analysisType == "CohortDiagnostics"){
-      mod_cohortDiagnosticsVisualization_server(pathToResultsDatabase)
-    }
-
-    ParallelLogger::logInfo("[Start] Loaded module server for ", analysisType)
-
-  })
 
 }
 
