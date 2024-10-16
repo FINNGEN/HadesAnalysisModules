@@ -2,8 +2,8 @@
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
-#' @importFrom shiny tagList actionButton
-#' @importFrom shinyjs useShinyjs hidden
+#' @importFrom shiny tagList tags div p
+#' 
 #' @noRd
 app_ui <- function(request) {
 
@@ -15,7 +15,6 @@ app_ui <- function(request) {
   if (analysisTypeFromOptions == "" || pathToResultsDatabaseFromOptions== "") {
     return(
       shiny::tagList(
-        shinyjs::useShinyjs(),
         shiny::tags$div(
           shiny::tags$p("Loading ...")
         )

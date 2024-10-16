@@ -59,7 +59,17 @@
   })
 }
 
-
+#' Temporal Ranges Module
+#'
+#' This module creates a UI and server components for managing temporal ranges.
+#'
+#' @param id The module ID
+#'
+#' @importFrom shiny NS tagList tags div actionButton moduleServer observeEvent insertUI removeUI reactive reactiveValues req updateNumericInput
+#' @importFrom shinyWidgets sliderTextInput updateSliderTextInput
+#' @importFrom stringr str_sub
+#'
+#' @export
 mod_temporalRanges_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(
@@ -68,7 +78,20 @@ mod_temporalRanges_ui <- function(id) {
   )
 }
 
-
+#' Temporal Ranges Server Module
+#'
+#' This function creates a server module for managing temporal ranges.
+#'
+#' @param id The module ID
+#' @param session The Shiny session object
+#' @param startRanges A list of initial ranges to display
+#'
+#' @return A reactive expression containing the list of temporal ranges
+#'
+#' @importFrom shiny moduleServer NS observe observeEvent insertUI reactive reactiveValues req
+#' @importFrom stringr str_sub
+#'
+#' @export
 mod_temporalRanges_server <- function(id, session, startRanges = list(c(-50000,50000), c(50000,0))) {
   shiny::moduleServer(id, function(input, output, session) {
     ns <- session$ns

@@ -1,7 +1,15 @@
-#
-# UI
-#
-
+#' CohortDiagnostics Results Visualization Module
+#'
+#' This module provides UI and server components for visualizing CohortDiagnostics results.
+#'
+#' @param pathToResultsDatabase The path to the results database
+#'
+#' @importFrom shiny NS
+#' @importFrom OhdsiShinyModules cohortDiagnosticsServer
+#' @importFrom DatabaseConnector createConnectionDetails
+#' @importFrom checkmate assertCharacter assertFileExists
+#'
+#' @export
 mod_cohortDiagnosticsVisualization_ui <- function(pathToResultsDatabase) {
 
   analisysResults <- .dataFromCohortDiagnosticsSqlitePath(pathToResultsDatabase)
@@ -16,11 +24,18 @@ mod_cohortDiagnosticsVisualization_ui <- function(pathToResultsDatabase) {
 }
 
 
-
-#
-# server
-#
-
+#' CohortDiagnostics Results Visualization Server Module
+#'
+#' This function creates a server module for visualizing CohortDiagnostics results.
+#'
+#' @param pathToResultsDatabase The path to the results database
+#'
+#' @return A server module for visualizing CohortDiagnostics results
+#' @importFrom OhdsiShinyModules cohortDiagnosticsServer
+#' @importFrom DatabaseConnector createConnectionDetails
+#' @importFrom checkmate assertCharacter assertFileExists
+#'
+#' @export
 mod_cohortDiagnosticsVisualization_server <- function(pathToResultsDatabase) {
 
   analisysResults <- .dataFromCohortDiagnosticsSqlitePath(pathToResultsDatabase)

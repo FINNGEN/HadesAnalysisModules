@@ -1,14 +1,14 @@
-#' @title CohortDiagnosticss Analysis Settings UI
-#' @description UI module for configuring the settings for cohort overlaps analysis. This module allows users to select cohorts and set the minimum cell count for the analysis.
+#' @title CohortDiagnostics Analysis Settings UI
+#' @description UI module for configuring the settings for CohortDiagnostics analysis. This module allows users to select cohorts and configure various analysis options.
 #'
 #' @param id A string representing the module's namespace.
 #'
 #' @return A Shiny UI element that can be included in a Shiny app.
 #'
-#' @importFrom shiny NS tags h4 numericInput
+#' @importFrom shiny NS tags h4 numericInput checkboxInput
 #' @importFrom shinyWidgets pickerInput
 #' @importFrom shinyjs useShinyjs
-#' @importFrom htmltools tagList
+#' @importFrom htmltools tagList hr
 #'
 #' @export
 #'
@@ -105,6 +105,7 @@ mod_analysisSettings_CohortDiagnostics_ui <- function(id) {
 #' @importFrom shiny moduleServer reactive req observe
 #' @importFrom shinyjs toggleState
 #' @importFrom shinyWidgets updatePickerInput
+#' @importFrom HadesExtras FeatureExtraction_createTemporalCovariateSettingsFromList
 #'
 #' @export
 #'

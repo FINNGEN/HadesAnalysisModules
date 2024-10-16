@@ -2,10 +2,10 @@
 #'
 #' @param input,output,session Internal parameters for {shiny}.
 #'     DO NOT REMOVE.
-#' @importFrom shiny reactive parseQueryString observe req insertUI onFlushed observeEvent
-#' @importFrom duckdb dbConnect duckdb
-#' @importFrom dplyr tbl collect pull
+#' 
+#' @importFrom shiny reactive parseQueryString req observe
 #' @importFrom ParallelLogger logInfo
+#' 
 #' @noRd
 app_server <- function(input, output, session) {
 

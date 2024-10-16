@@ -1,20 +1,15 @@
 
 #' @title execute_CohortDiagnostics
-#' @description This function calculates cohort overlaps based on the provided cohort table and analysis settings, and exports the results to a DuckDB database.
+#' @description This function executes CohortDiagnostics based on the provided cohort table and analysis settings, and exports the results to a specified folder.
 #'
 #' @param exportFolder A string representing the path to the folder where the results will be exported.
 #' @param cohortTableHandler An R6 object of class `CohortTableHandler` containing information about the cohort tables.
-#' @param analysisSettings A list containing analysis settings, including `cohortIds` and `minCellCount`.
+#' @param analysisSettings A list containing analysis settings for CohortDiagnostics.
 #'
-#' @return A string representing the path to the exported results database.
+#' @return A string representing the path to the exported results folder.
 #'
-#' @importFrom checkmate assertDirectoryExists assertR6 assertList assertSubset assertNumeric checkFileExists
-#' @importFrom ParallelLogger logInfo
-#' @importFrom dplyr filter mutate select as_tibble
-#' @importFrom duckdb dbConnect dbDisconnect dbWriteTable dbListTables
-#' @importFrom DBI dbGetQuery
-#' @importFrom tibble tibble
-#' @importFrom yaml as.yaml
+#' @importFrom checkmate assertDirectoryExists assertR6
+#' @importFrom CohortDiagnostics executeDiagnostics
 #'
 #' @export
 #'
@@ -103,22 +98,26 @@ execute_CohortDiagnostics <- function(
 }
 
 #' @title Assert Analysis Settings for CohortDiagnostics
-#' @description Validates the `analysisSettings` list to ensure it contains the required elements (`cohortIdCases`, `cohortIdControls`, `analysisIds`, `covariatesIds`, `minCellCount`, `chunksSizeNOutcomes`, `cores`) with correct types and values. This function is specifically designed for checking settings related to CohortDiagnostics analysis.
+#' @description Validates the `analysisSettings` list to ensure it contains the required elements for CohortDiagnostics analysis with correct types and values.
 #'
 #' @param analysisSettings A list containing analysis settings. It must include the following elements:
 #' \describe{
-#'   \item{cohortIdCases}{A numeric value representing the cohort ID for cases.}
-#'   \item{cohortIdControls}{A numeric value representing the cohort ID for controls.}
-#'   \item{analysisIds}{A numeric vector of analysis IDs.}
-#'   \item{covariatesIds}{A numeric vector of covariate IDs (optional).}
-#'   \item{minCellCount}{A numeric value representing the minimum cell count, must be 0 or higher.}
-#'   \item{chunksSizeNOutcomes}{A numeric value representing the chunk size for outcomes (optional).}
-#'   \item{cores}{A numeric value representing the number of cores to use for parallel processing.}
+#'   \item{cohortIds}{A numeric vector of cohort IDs.}
+#'   \item{runInclusionStatistics}{A logical value indicating whether to run inclusion statistics.}
+#'   \item{runIncludedSourceConcepts}{A logical value indicating whether to run included source concepts.}
+#'   \item{runOrphanConcepts}{A logical value indicating whether to run orphan concepts.}
+#'   \item{runVisitContext}{A logical value indicating whether to run visit context.}
+#'   \item{runBreakdownIndexEvents}{A logical value indicating whether to run breakdown of index events.}
+#'   \item{runIncidenceRate}{A logical value indicating whether to run incidence rate.}
+#'   \item{runCohortRelationship}{A logical value indicating whether to run cohort relationship.}
+#'   \item{runTemporalCohortCharacterization}{A logical value indicating whether to run temporal cohort characterization.}
+#'   \item{temporalCovariateSettings}{A list of temporal covariate settings.}
+#'   \item{minCellCount}{A numeric value representing the minimum cell count.}
 #' }
 #'
 #' @return Returns the validated `analysisSettings` list.
 #'
-#' @importFrom checkmate assertList assertSubset assertNumeric
+#' @importFrom checkmate assertList assertSubset assertNumeric assertLogical
 #'
 #' @export
 assertAnalysisSettings_CohortDiagnostics <- function(analysisSettings) {

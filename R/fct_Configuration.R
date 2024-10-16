@@ -45,6 +45,8 @@ readAndParseYalm <- function(pathToYalmFile, ...) {
 #'
 #' @param logsFolder A string representing the folder name for the logs.
 #'
+#' @importFrom ParallelLogger createLogger createFileAppender layoutSimple clearLoggers registerLogger
+#'
 #' @return A logger object.
 #'
 #' @export

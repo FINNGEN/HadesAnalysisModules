@@ -16,6 +16,8 @@
 #' @importFrom purrr map
 #' @importFrom shinyWidgets pickerInput
 #' @importFrom checkmate assertNumeric assertSubset
+#' @importFrom HadesExtras getListOfAnalysis
+#'
 #' @export
 #'
 mod_fct_covariateSelector_ui <- function(inputId, label = NULL, analysisIdsToShow = NULL, analysisIdsSelected = NULL) {
