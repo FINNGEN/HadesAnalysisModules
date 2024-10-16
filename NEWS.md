@@ -1,3 +1,3 @@
-# HadesAnalysisModules (development version)
+# HadesAnalysisModules 1.0.0
 
 * Initial CRAN submission.
