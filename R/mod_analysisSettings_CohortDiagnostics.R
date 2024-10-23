@@ -31,22 +31,22 @@ mod_analysisSettings_CohortDiagnostics_ui <- function(id) {
     shiny::checkboxInput(
       inputId = ns("runInclusionStatistics_switch"),
       label = "Run Inclusion Statistics (for Atlas cohorts, calculates attrition plot)",
-      value = FALSE
+      value = TRUE
     ),
     shiny::checkboxInput(
       inputId = ns("runIncludedSourceConcepts_switch"),
       label = "Run Included Source Concepts",
-      value = FALSE
+      value = TRUE
     ),
     shiny::checkboxInput(
       inputId = ns("runOrphanConcepts_switch"),
       label = "Run Orphan Concepts (for Atlas cohorts, suggest concepts to add to cohort definition)",
-      value = FALSE
+      value = TRUE
     ),
     shiny::checkboxInput(
       inputId = ns("runVisitContext_switch"),
       label = "Run Visit Context (Visit types around the cohort start)",
-      value = FALSE
+      value = TRUE
     ),
     shiny::checkboxInput(
       inputId = ns("runIncidenceRate_switch"),
@@ -85,12 +85,13 @@ mod_analysisSettings_CohortDiagnostics_ui <- function(id) {
         801, 841, 909,
         501, 541, 907,
         910, 911 ),
-      analysisIdsSelected = c(141, 1, 2, 8, 10, 41, 641, 341, 404, 701, 702, 841, 541 )
+      analysisIdsSelected = c(141, 1, 2, 8, 10, 641, 341, 404, 701, 702, 841, 541 )
     ),
     #
     htmltools::hr(),
     shiny::tags$h4("Time windows"),
-    mod_temporalRanges_ui(ns("time_windows"))
+    mod_temporalRanges_ui(ns("time_windows")),
+    htmltools::hr()
   )
 }
 
