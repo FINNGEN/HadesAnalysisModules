@@ -128,3 +128,25 @@ helper_createNewCohortTableHandler <- function(addCohorts = NULL){
 }
 
 
+
+
+helper_getParedSourcePersonAndPersonIds  <- function(
+    connection,
+    cohortDatabaseSchema,
+    numberPersons){
+
+  # Connect, collect tables
+  personTable <- dplyr::tbl(connection, HadesExtras::tmp_inDatabaseSchema(cohortDatabaseSchema, "person"))
+
+  # get first n persons
+  pairedSourcePersonAndPersonIds  <- personTable  |>
+    dplyr::arrange(person_id) |>
+    dplyr::select(person_id, person_source_value) |>
+    dplyr::collect(n=numberPersons)
+
+
+  return(pairedSourcePersonAndPersonIds)
+}
+
+
+

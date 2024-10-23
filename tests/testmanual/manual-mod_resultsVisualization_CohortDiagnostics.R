@@ -5,7 +5,7 @@ source(testthat::test_path("setup.R"))
 source(testthat::test_path("helper.R"))
 
 # set up
-cohortTableHandler <- helper_createNewCohortTableHandler(addCohorts = "HadesExtrasFractureCohortsMatched")
+cohortTableHandler <- helper_createNewCohortTableHandler(addCohorts = "HadesExtrasAsthmaCohortsMatched")
 on.exit({rm(cohortTableHandler);gc()})
 
 exportFolder <- file.path(tempdir(), "testtimeCohortDiagnostics")
@@ -19,7 +19,7 @@ temporalCovariateSettings <- HadesExtras::FeatureExtraction_createTemporalCovari
 )
 
 analysisSettings <- list(
-  cohortIds = c(1,2),
+  cohortIds = c(2, 2001),
   runInclusionStatistics = TRUE,
   runIncludedSourceConcepts = TRUE,
   runOrphanConcepts = TRUE,
