@@ -5,22 +5,11 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of HadesAnalysisModules is to ...
+CO2AnalysisModules host a collection of analysis modules to be used in the [CohortOperations2](https://github.com/FINNGEN/CohortOperations2) shiny app.
 
-## Installation
+Currently this package includes the following modules:
 
-You can install the development version of HadesAnalysisModules like so:
+- [CohortsDiagnostics](https://github.com/OHDSI/CohortDiagnostics) 
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
-```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(HadesAnalysisModules)
-## basic example code
-```
 
